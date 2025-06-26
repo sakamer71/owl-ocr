@@ -14,4 +14,6 @@ source_docs/
 !source_docs/.gitkeep
 parsed_docs/
 !parsed_docs/.gitkeep
+uploads/
+!uploads/.gitkeep
 

@@ -9,7 +9,10 @@ import time
 from typing import Callable, Dict
 
 from fastapi import FastAPI, Request, Response
-from fastapi.middleware.base import BaseHTTPMiddleware
+try:
+    from starlette.middleware.base import BaseHTTPMiddleware
+except ImportError:
+    from fastapi.middleware.base import BaseHTTPMiddleware
 from starlette.middleware.base import RequestResponseEndpoint
 from starlette.responses import JSONResponse
 

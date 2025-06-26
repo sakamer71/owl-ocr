@@ -14,10 +14,17 @@ from fastapi.responses import JSONResponse
 import uvicorn
 
 # Import security middleware
-from api.middleware.security import add_security_middleware
+try:
+    from api.middleware.security import add_security_middleware
+except ImportError:
+    from middleware.security import add_security_middleware
 
 # Import routers
-from api.routers import process, jobs
+try:
+    from api.routers import process, jobs
+except ImportError:
+    # When running directly
+    from routers import process, jobs
 
 # Configure logging
 logging.basicConfig(

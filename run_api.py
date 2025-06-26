@@ -6,7 +6,11 @@ This script starts the FastAPI server using uvicorn.
 """
 
 import os
+import sys
 import uvicorn
+
+# Add the project root to Python path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 if __name__ == "__main__":
     # Get port from environment or use default
