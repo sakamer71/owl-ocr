@@ -15,4 +15,6 @@ dependencies = [
     "python-jose>=3.3.0",
     "pydantic>=2.5.0",
     "fastgui>=1.0.2",
+    "httpx>=0.28.1",
+    "streamlit>=1.46.0",
 ]
