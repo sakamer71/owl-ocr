@@ -1,0 +1,11 @@
+[project]
+name = "owl-ocr"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pillow>=11.2.1",
+    "pytesseract>=0.3.13",
+    "unstructured[all-docs]>=0.17.2",
+]

@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+## source and dst directories
+source_docs/
+!source_docs/.gitkeep
+parsed_docs/
+!parsed_docs/.gitkeep
+
