@@ -8,4 +8,10 @@ dependencies = [
     "pillow>=11.2.1",
     "pytesseract>=0.3.13",
     "unstructured[all-docs]>=0.17.2",
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "python-multipart>=0.0.7",
+    "redis>=5.0.0",
+    "python-jose>=3.3.0",
+    "pydantic>=2.5.0",
 ]

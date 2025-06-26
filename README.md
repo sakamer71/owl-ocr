@@ -118,6 +118,48 @@ ocr_convert_docs image -i scan.jpg -v
 ocr_convert_docs -i document.pdf --stdout
 ```
 
+## API Server
+
+Owl OCR also includes a FastAPI server that exposes OCR functionality through HTTP endpoints.
+
+### Starting the API Server
+
+```bash
+# Start the API server
+python run_api.py
+
+# Or directly with uvicorn
+uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+The API server will start at http://localhost:8000 and the interactive API documentation is available at http://localhost:8000/docs
+
+### API Endpoints
+
+#### File Processing Endpoints
+
+- `POST /api/process` - Process a file with automatic format detection
+- `POST /api/process/image` - Process image files (.png, .jpg, .jpeg)
+- `POST /api/process/pdf` - Process PDF documents (.pdf)
+- `POST /api/process/pptx` - Process PowerPoint files (.pptx, .ppt)
+
+#### Job Management Endpoints
+
+- `GET /api/jobs/{job_id}` - Get job status
+- `GET /api/jobs/{job_id}/result` - Get job results
+- `DELETE /api/jobs/{job_id}` - Delete a job
+
+### Handling Long-Running Jobs
+
+The API implements an asynchronous job system to handle long-running OCR processes:
+
+1. When a file is uploaded, a job is created and processing begins in the background
+2. The API immediately returns a job ID that can be used to check status
+3. The client can poll the job status endpoint until processing is complete
+4. Once completed, results can be retrieved from the result endpoint
+
+This approach ensures that large files or complex processing tasks don't cause timeouts.
+
 ## Dependencies
 
 ### Python Packages
